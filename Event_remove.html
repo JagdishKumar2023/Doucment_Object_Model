@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- <button id="btn">Click me !</button> -->
+
+    <script>
+      let btn = document.getElementById("btn");
+
+      function Click1() {
+        console.log("Click1 activated");
+      }
+
+      function Click2() {
+        console.log("Click2 activated");
+      }
+
+      btn.addEventListener("click", Click1);
+      btn.addEventListener("click", Click2);
+
+      btn.removeEventListener("click", Click1);
+    </script>
+  </body>
+</html>
