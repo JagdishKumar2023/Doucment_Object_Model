@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event form</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="myInput" />
+    </form>
+    <script>
+      let x = document.getElementById("myInput");
+
+      x.addEventListener("focus", myFocusFunction);
+      x.addEventListener("Blur", myBlurFunction);
+
+      x.addEventListener("change", function () {
+        console.log(this.value);
+      });
+
+      function myFocusFunction() {
+        x.style.background = "red";
+      }
+
+      function myBlurFunction() {
+        x.style.background = "white";
+      }
+    </script>
+  </body>
+</html>
