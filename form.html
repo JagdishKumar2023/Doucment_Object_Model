@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic form</title>
+  </head>
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Write Something" id="input" value="" />
+      <button type="button" value="submit">submit</button>
+    </form>
+    <div id="User_detail">
+      <h1 id="display_value"></h1>
+    </div>
+  </body>
+</html>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); // prevent from refreshing the page
+    let inputtag = document.getElementById("input");
+    let inputValue = inputtag.value;
+    let display_value = document.getElementById("display_value");
+    display_value.innerText = inputValue;
+    inputtag.value = ""; // empty
+  }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter number</title>
+  </head>
+  <body>
+    <div>
+      <h1>Counter : <span id="counter_span">0 item</span></h1>
+    </div>
+    <div>
+      <button onclick="increament()" id="increament">increament</button>
+      <button onclick="decreament()" id="decreament">decreament</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let counter = 0;
+
+  function updateDOM() {
+    let counterSpan = document.getElementById("counter_span");
+    if (counter == 1 || counter === 0) {
+      counterSpan.innerText = `${counter} item`;
+    } else {
+      counterSpan.innerText = `${counter} items`;
+    }
+  }
+
+  function increament() {
+    counter++;
+    updateDOM();
+  }
+
+  function decreament() {
+    if (counter > 0) {
+      counter--;
+      updateDOM();
+    }
+  }
+</script>
