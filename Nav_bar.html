@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add to Cart</title>
+    <style>
+      .nav {
+        text-align: center;
+        justify-content: center;
+        flex-direction: row;
+        list-style: none;
+        background-color: aqua;
+      }
+      #nav_bar li {
+        text-align: start;
+        justify-content: end;
+        font-size: 40px;
+        background-color: aqua;
+        display: inline-block;
+        padding: 4px 30px;
+      }
+      li {
+        cursor: pointer;
+        color: blue;
+      }
+      #cart {
+        color: blueviolet;
+      }
+      button {
+        background-color: yellowgreen;
+        padding: 6px 8px;
+        cursor: pointer;
+        font-size: 17px;
+        margin: 5px 6px;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <ul id="nav_bar">
+        <li>Home</li>
+        <li>Contact Us</li>
+        <li>Sign up</li>
+        <li>Add product</li>
+      </ul>
+    </div>
+    <div id="cart">
+      <h1>ADD TO CART : <span id="add_to_cart"></span></h1>
+    </div>
+    <div>
+      <button onclick="increament()" id="increament">Increament</button>
+      <button onclick="decreament()" id="decreament">Decreament</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let addCart = 1;
+
+  function updateDOM() {
+    let cartSpan = document.getElementById("add_to_cart");
+    if (addCart === 1 || addCart === 0) {
+      cartSpan.innerText = `${addCart} item`;
+    } else {
+      cartSpan.innerText = `${addCart} items`;
+    }
+  }
+
+  function increament() {
+    addCart++;
+    updateDOM();
+  }
+
+  function decreament() {
+    if (addCart > 0) {
+      addCart--;
+      updateDOM();
+    }
+  }
+</script>

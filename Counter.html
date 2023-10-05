@@ -7,7 +7,7 @@
   </head>
   <body>
     <div>
-      <h1>Counter : <span id="counter_span">0 item</span></h1>
+      <h1>Counter : <span id="counter_span"></span></h1>
     </div>
     <div>
       <button onclick="increament()" id="increament">increament</button>
@@ -21,7 +21,7 @@
 
   function updateDOM() {
     let counterSpan = document.getElementById("counter_span");
-    if (counter == 1 || counter === 0) {
+    if (counter === 1 || counter === 0) {
       counterSpan.innerText = `${counter} item`;
     } else {
       counterSpan.innerText = `${counter} items`;
