@@ -5,23 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add to Cart</title>
     <style>
-      .nav {
-        text-align: center;
-        list-style: none;
-        background-color: aqua;
+      body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      #nav_bar li {
-        text-align: start;
+      
+      .navbar_container{
+        /* border: 1px solid red; */
+        display: flex;
         justify-content: end;
-        font-size: 40px;
-        background-color: aqua;
-        display: inline-block;
-        padding: 4px 30px;
+        background-color: blue;
       }
-      ul li {
+
+      ul{
+        /* border: 1px solid blue; */
+        list-style: none;
+        display: flex;
+        color: white;
+        font-size: 20px;
+      }
+      li{
+        margin: 10px;
         cursor: pointer;
-        color: blue;
       }
+
       #cart {
         color: blueviolet;
       }
@@ -33,48 +41,66 @@
         color: whitesmoke;
         border-radius: 10px;
       }
+
+      .total_value_container{
+        /* border: 1px solid; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+      }
     </style>
   </head>
   <body>
-    <div class="nav">
-      <ul id="nav_bar">
+    <div class="navbar_container">
+      <ul class="nav_bar_ul">
         <li>Home</li>
         <li>Contact us</li>
         <li>Sign up</li>
-        <li>Add product</li>
+        <li>Cart  <span id="add_to_cart"></span</li>
       </ul>
     </div>
-    <div id="cart">
-      <h1>ADD TO CART : <span id="add_to_cart"></span></h1>
-    </div>
-    <div>
-      <button onclick="increament()" id="increament">Increament+</button>
-      <button onclick="decreament()" id="decreament">Decreament-</button>
+    <div class="total_value_container">
+      <div>
+        <h2>Total <span id="cartTotal"></span> </h2>
+      </div>
+      <div>
+        <button onclick="increament()" id="increament">Increament+</button>
+        <button onclick="decreament()" id="decreament">Decreament-</button>
+      </div>
     </div>
   </body>
 </html>
 
 <script>
-  let addCart = 0;
+  let cartCount = 0;
+
+  function totalValueDOM(){
+    let cartTotal = document.getElementById("cartTotal");
+    cartTotal.innerText=cartCount*100;
+  }
 
   function updateDOM() {
     let cartSpan = document.getElementById("add_to_cart");
-    if (addCart === 1 || addCart === 0) {
-      cartSpan.innerText = `${addCart} ITEM`;
+    if (cartCount === 1 || cartCount === 0) {
+      cartSpan.innerText = `${cartCount} Item`;
     } else {
-      cartSpan.innerText = `${addCart} ITEMS`;
+      cartSpan.innerText = `${cartCount} Items`;
     }
   }
 
   function increament() {
-    addCart++;
+    cartCount++;
     updateDOM();
+    totalValueDOM()
   }
 
   function decreament() {
-    if (addCart > 0) {
-      addCart--;
+    if (cartCount > 0) {
+      cartCount--;
       updateDOM();
+      totalValueDOM()
     }
   }
 </script>

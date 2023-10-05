@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add cart</title>
+  </head>
+  <body>
+    <div>
+      <h2>Cart: <span id="cartCount"></span></h2>
+    </div>
+    <div>
+      <h2>Total: <span id="total"></span></h2>
+    </div>
+    <div>
+      <button onclick="inceament()" id="inceament">+</button>
+      <button onclick="decrement()" id="decrement">-</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let cartCounter = 0;
+
+  function updateCartCounterDOM() {
+    let cartCount = document.getElementById("cartCount");
+    cartCount.innerText = `${cartCounter} item`;
+  }
+
+  function totalValueCounterDom() {
+    let cartTotalCount = document.getElementById("total");
+    cartTotalCount.innerText = cartCounter * 100;
+  }
+
+  function inceament() {
+    cartCounter++;
+    updateCartCounterDOM();
+    totalValueCounterDom();
+  }
+
+  function decrement() {
+    if (cartCounter > 0) cartCounter--;
+    updateCartCounterDOM();
+    totalValueCounterDom();
+  }
+
+  //   web storage
+  // localStorage
+  // sessionStorage
+  // cookies
+
+  //   local storage
+</script>
